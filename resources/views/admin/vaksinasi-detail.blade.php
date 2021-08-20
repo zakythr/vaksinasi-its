@@ -63,12 +63,12 @@
             <ul class="nav nav-aside">
                 <li class="nav-item"><a href="../beranda/index-admin.html" class="nav-link"><i data-feather="home"></i> <span>Beranda</span></a></li>
                 <li class="nav-label mg-t-15">Kelola</li>
-                <li class="nav-item"><a href="../admin/vaksinasi.html" class="nav-link"><i data-feather="calendar"></i> <span>Jadwal Vaksinasi</span></a></li>
+                <li class="nav-item"><a href="{{ url('/jadwalvaksinasiadmin') }}" class="nav-link"><i data-feather="calendar"></i> <span>Jadwal Vaksinasi</span></a></li>
                 <li class="nav-item"><a href="../admin/laporan.html" class="nav-link"><i data-feather="clipboard"></i> <span>Laporan</span></a></li>
                 <li class="nav-label mg-t-15">Data</li>
                 <li class="nav-item"><a href="../admin/pegawai.html" class="nav-link"><i data-feather="user"></i> <span>Pegawai</span></a></li>
-                <li class="nav-item"><a href="../admin/vaksinator.html" class="nav-link"><i data-feather="users"></i> <span>Vaksinator</span></a></li>
-                <li class="nav-item"><a href="../admin/jenis-vaksin.html" class="nav-link"><i data-feather="copy"></i> <span>Jenis Vaksin</span></a></li>
+                <li class="nav-item"><a href="{{ url('/vaksinator') }}" class="nav-link"><i data-feather="users"></i> <span>Vaksinator</span></a></li>
+                <li class="nav-item"><a href="{{ url('/jenisvaksin') }}" class="nav-link"><i data-feather="copy"></i> <span>Jenis Vaksin</span></a></li>
             </ul>
         </div>
     </aside>
@@ -150,8 +150,8 @@
                     <div class="col-10 col-sm-10 col-lg-10 d-flex align-items-center">
                       <div class="d-flex align-items-center">
                         <div>
-                          <h5 class="tx-medium tx-montserrat mg-b-0">Sabtu, 03 Apr 2021</h5>
-                          <p class="mg-b-5">07.00 - 12.00</p>
+                          <h5 class="tx-medium tx-montserrat mg-b-0">{{$post->tglvaksin}}</h5>
+                          <p class="mg-b-5">{{$post->sesi_vaksin_mulai}} - {{$post->sesi_vaksin_selesai}}</p>
                           <span class="tx-13"><span class="tx-info"><i class="far fa-play-circle mg-r-5"></i>Pendaftaran dibuka</span></span>
                         </div>
                       </div>
@@ -176,33 +176,33 @@
                   <p class="tx-medium tx-15">Tentang Vaksinasi Ini</p>
                   <div class="card-list-text">
                     <span class="tx-10 tx-spacing-1 tx-color-03 tx-uppercase tx-semibold">Vaksinator</span> 
-                    <p class="mg-b-0">RSU Haji</p>
+                    <p class="mg-b-0">{{$post->vaksinator}}</p>
                   </div>
                   <div class="card-list-text">
                     <span class="tx-10 tx-spacing-1 tx-color-03 tx-uppercase tx-semibold">Jenis Vaksin</span> 
-                    <p class="mg-b-0">Coronavac</p>
+                    <p class="mg-b-0">{{$post->jenisvaksin}}</p>
                   </div>
                   <div class="card-list-text">
                     <span class="tx-10 tx-spacing-1 tx-color-03 tx-uppercase tx-semibold">Pendaftaran</span> 
-                    <p class="mg-b-0">20 Mar 2021 - 31 Mar 2021</p>
+                    <p class="mg-b-0">{{date('d-m-Y', strtotime($post->mulaidaftar))}} - {{date('d-m-Y', strtotime($post->selesaidaftar))}}</p>
                   </div>
                   <hr class="mg-t-20 mg-b-20">
                   <p class="tx-medium tx-15">Pelaksanaan</p>
                   <div class="card-list-text">
                     <span class="tx-10 tx-spacing-1 tx-color-03 tx-uppercase tx-semibold">Tanggal Vaksinasi</span> 
-                    <p class="mg-b-0">03 Apr 2021</p>
+                    <p class="mg-b-0">{{date('d-m-Y', strtotime($post->tglvaksin))}}</p>
                   </div>
                   <div class="card-list-text">
                     <span class="tx-10 tx-spacing-1 tx-color-03 tx-uppercase tx-semibold">Sesi Vaksinasi</span> 
-                    <p class="mg-b-0">07.00 - 12.00</p>
+                    <p class="mg-b-0">{{$post->sesi_vaksin_mulai}} - {{$post->sesi_vaksin_selesai}}</p>
                   </div>
                   <div class="card-list-text">
                     <span class="tx-10 tx-spacing-1 tx-color-03 tx-uppercase tx-semibold">Lokasi</span> 
-                    <p class="mg-b-0">Surabaya</p>
+                    <p class="mg-b-0">{{$post->lokasi}}</p>
                   </div>
                   <div class="card-list-text">
                     <span class="tx-10 tx-spacing-1 tx-color-03 tx-uppercase tx-semibold">Kuota</span> 
-                    <p class="mg-b-0">500 orang</p>
+                    <p class="mg-b-0">{{$post->kuota}}</p>
                   </div>
                 </div>
               </div>

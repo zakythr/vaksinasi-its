@@ -15,7 +15,7 @@ class JadwalVaksinasiController extends Controller
     public function index()
     {
         $posts = JadwalVaksin::all();
-        return view('admin/vaksinasi');
+        return view('admin/vaksinasi', compact('posts'));
     }
 
     public function create()
@@ -32,13 +32,20 @@ class JadwalVaksinasiController extends Controller
         $post->jenisvaksin = $request->input('jenisvaksin');
         $post->mulaidaftar = $request->input('tgl_mulai');
         $post->selesaidaftar = $request->input('tgl_selesai');
-        $post->tglvaksin = $request->input('tglvaksin');
-        $post->sesi_vaksin_mulai = $request->input('sesi_vaksin_mulai');
-        $post->sesi_vaksin_selesai = $request->input('sesi_vaksin_selesai');
+        $post->tglvaksin = $request->input('tgl_pelaksanaan');
+        $post->sesi_vaksin_mulai = $request->input('sesi_mulai');
+        $post->sesi_vaksin_selesai = $request->input('sesi_selesai');
         $post->lokasi = $request->input('lokasi');
         $post->kuota = $request->input('kuota');
         $post->save();
 
-        return redirect('/jadwalvaksinasidmin');
+        return redirect('/jadwalvaksinasiadmin');
     }
+
+    public function detail($id)
+    {
+        $post = JadwalVaksin::where('id',$id)->first();
+        return view('admin/vaksinasi-detail', compact('post'));
+    }
+
 }

@@ -63,12 +63,12 @@
             <ul class="nav nav-aside">
                 <li class="nav-item"><a href="../beranda/index-admin.html" class="nav-link"><i data-feather="home"></i> <span>Beranda</span></a></li>
                 <li class="nav-label mg-t-15">Kelola</li>
-                <li class="nav-item"><a href="../admin/vaksinasi.html" class="nav-link"><i data-feather="calendar"></i> <span>Jadwal Vaksinasi</span></a></li>
+                <li class="nav-item"><a href="{{ url('/jadwalvaksinasiadmin') }}" class="nav-link"><i data-feather="calendar"></i> <span>Jadwal Vaksinasi</span></a></li>
                 <li class="nav-item"><a href="../admin/laporan.html" class="nav-link"><i data-feather="clipboard"></i> <span>Laporan</span></a></li>
                 <li class="nav-label mg-t-15">Data</li>
                 <li class="nav-item"><a href="../admin/pegawai.html" class="nav-link"><i data-feather="user"></i> <span>Pegawai</span></a></li>
-                <li class="nav-item"><a href="../admin/vaksinator.html" class="nav-link"><i data-feather="users"></i> <span>Vaksinator</span></a></li>
-                <li class="nav-item"><a href="../admin/jenis-vaksin.html" class="nav-link"><i data-feather="copy"></i> <span>Jenis Vaksin</span></a></li>
+                <li class="nav-item"><a href="{{ url('/vaksinator') }}" class="nav-link"><i data-feather="users"></i> <span>Vaksinator</span></a></li>
+                <li class="nav-item"><a href="{{ url('/jenisvaksin') }}" class="nav-link"><i data-feather="copy"></i> <span>Jenis Vaksin</span></a></li>
             </ul>
         </div>
     </aside>
@@ -137,7 +137,7 @@
             <div class="d-lg-none mg-t-10">
             </div>
             <div>
-              <a href="vaksinasi-add.html"  class="btn btn-its tx-montserrat tx-semibold"><i data-feather="plus" class="wd-10 mg-r-5 tx-color-its2"></i> Tambah</a>
+              <a href="{{ url('/addjadwalvaksinasiadmin') }}"  class="btn btn-its tx-montserrat tx-semibold"><i data-feather="plus" class="wd-10 mg-r-5 tx-color-its2"></i> Tambah</a>
             </div>
           </div>
 
@@ -147,13 +147,13 @@
                 <div class="card-body card-list">
                 @foreach ($posts as $item)
                 <div class="card-list-item">
-                  <a href="vaksinasi-detail.html">
+                  <a href="{{ url('/detailjadwalvaksinasiadmin/'. $item->id) }}">
                     <div class="d-flex justify-content-between align-items-center sc-link">
                       <div class="media">
                         <div class="wd-40 ht-40 bg-its-icon tx-color-its mg-r-15 mg-md-r-15 d-flex align-items-center justify-content-center rounded-its"><i data-feather="calendar"></i></div>
                         <div class="media-body align-self-center">
-                          <p class="tx-montserrat tx-semibold mg-b-0 tx-color-02">{{$item->tglvaksin}}</p> 
-                          <p class="tx-color-03 tx-13">{{$item->sesi_vaksin_mulai}}-{{$item->sesi_vaksin_selesai}}</p>
+                          <p class="tx-montserrat tx-semibold mg-b-0 tx-color-02">{{date('d-m-Y', strtotime($item->tglvaksin))}}</p> 
+                          <p class="tx-color-03 tx-13">{{$item->sesi_vaksin_mulai}} - {{$item->sesi_vaksin_selesai}}</p>
                           <span class="tx-13"><span class="tx-info"><i class="far fa-play-circle mg-r-5"></i>Pendaftaran dibuka</span></span>
                         </div>
                       </div>
