@@ -9,7 +9,6 @@ use App\Vaksinator;
 class VaksinatorController extends Controller
 {
     //
-
     public function index()
     {
         $posts = Vaksinator::orderBy('nama', 'ASC')->get();

@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/jadwalvaksinadmin', 'admin\\JadwalVaksinasiController@index');
+Route::get('/jadwalvaksinasiadmin', 'admin\\JadwalVaksinasiController@index');
+Route::get('/addjadwalvaksinasiadmin', 'admin\\JadwalVaksinasiController@create');
+Route::post('/addjadwalvaksinasiadmin', 'admin\\JadwalVaksinasiController@store');
 Route::get('/jenisvaksin', 'admin\\JenisVaksinController@index');
 Route::post('/jenisvaksin', 'admin\\JenisVaksinController@store');
 Route::get('/laporanvaksin', 'admin\\LaporanController@index');
