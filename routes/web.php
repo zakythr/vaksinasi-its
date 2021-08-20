@@ -13,8 +13,10 @@
 
 Route::get('/jadwalvaksinadmin', 'admin\\JadwalVaksinasiController@index');
 Route::get('/jenisvaksin', 'admin\\JenisVaksinController@index');
+Route::post('/jenisvaksin', 'admin\\JenisVaksinController@store');
 Route::get('/laporanvaksin', 'admin\\LaporanController@index');
 Route::get('/pegawai', 'admin\\PegawaiController@index');
 Route::get('/vaksinator', 'admin\\VaksinatorController@index');
+Route::post('/vaksinator', 'admin\\VaksinatorController@store');
 Route::get('/jadwalvaksinpegawai', 'pegawai\\JadwalVaksinasiController@index');
 Route::get('/riwayat', 'pegawai\\RiwayatController@index');

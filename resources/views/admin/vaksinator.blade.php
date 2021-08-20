@@ -154,10 +154,12 @@
                       </tr>
                     </thead>
                     <tbody>
+                    @foreach ($posts as $item)
                       <tr>
-                        <td class="td-its align-middle border-bottom">RSU Haji</td>
+                        <td class="td-its align-middle border-bottom">{{$item->nama}}</td>
                         <td class="td-its align-middle border-bottom"><a href="#" class="btn btn-white btn-icon" role="button" data-toggle="modal" data-target="#hapusvaksinator" data-animation="effect-scale"><i data-feather="trash" class="wd-10"></i></a></td>
-                      </tr>
+                      </tr>   
+                    @endforeach
                     </tbody>
                   </table>
                 </div>
@@ -178,7 +180,8 @@
             </button>
             <h5 class="tx-montserrat tx-medium" id="tambahvaksinatorLabel">Tambah Vaksinator</h5>
           </div>
-          <form>
+          <form method="POST" action="{{ url('/vaksinator') }}" enctype="multipart/form-data">
+          @csrf
             <div class="modal-body pd-t-0">
               <div class="form-group">
                 <label class="d-block tx-10 tx-spacing-1 tx-color-03 tx-uppercase tx-semibold">Nama</label>
